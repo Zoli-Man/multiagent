@@ -337,8 +337,10 @@ def betterEvaluationFunction(currentGameState):
     # make sure that the pacman will eat the food
     score += len(newFood.asList(False))
 
+    # if the ghost is scared, the pacman will try to eat it
     if sum_scard > 0:
         score += sum_scard  + (-1 * sum_ghoste_dist)
+    # if the ghost is not scared, the pacman will try to avoid it
     else:
         for ghost_dist in ghost_dist:
             if ghost_dist < 1:
